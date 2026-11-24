@@ -1,0 +1,126 @@
+{
+  "title": "From interest to confidence",
+  "subtitle": "Microsoft Ignite 2026 · Amy’s takeaways",
+  "introduction": "Reflections from customer conversations, table talks, and booth discussions.",
+  "sections": [
+    {
+      "id": "event",
+      "kind": "gallery",
+      "eyebrow": "Ignite 2026 / Event context",
+      "title": "Images from Ignite",
+      "photos": [
+        { "src": "/media/booth.jpg", "alt": "The Microsoft IQ booth area at Ignite", "caption": "Microsoft IQ booth" },
+        { "src": "/media/lightning.jpg", "alt": "A lightning talk at Ignite", "caption": "Lightning talk" },
+        { "src": "/media/audience.png", "alt": "The audience attending the Foundry Canvas lightning talk", "caption": "From idea to agent in minutes with Foundry Canvas" }
+      ]
+    },
+    {
+      "id": "team",
+      "kind": "gallery",
+      "eyebrow": "Our work, out in the world",
+      "title": "Proud to see our work come together.",
+      "photos": [
+        { "src": "/media/workshop.jpg", "alt": "Attendees working at computers during a hands-on workshop", "caption": "Hands-on workshop: Build a hosted agent with VS Code" },
+        { "src": "/media/optimization.jpg", "alt": "The Optimization in VS Code booth demo", "caption": "Optimization demo in VS Code" }
+      ]
+    },
+    {
+      "id": "interest",
+      "kind": "signals",
+      "eyebrow": "In my conversations · Qualitative snapshot",
+      "title": "High interest. Still exploring what fits.",
+      "description": "Compared with Build’s developer focus, Ignite leans toward enterprise adoption and IT leadership.",
+      "items": [
+        { "title": "Foundry stood out in the keynote", "body": "Many visitors had heard of it and came to learn more." },
+        { "title": "Interest in building or adopting agents", "body": "Questions focused on concepts and capabilities." },
+        { "title": "Foundry or Copilot Studio?", "body": "Where do I start after the keynote?" }
+      ]
+    },
+    {
+      "id": "choices",
+      "kind": "choices",
+      "eyebrow": "01 / Clarify the choices",
+      "title": "When should I use Foundry vs. Copilot Studio?",
+      "statement": "Harness choice is part of the draw.",
+      "items": [
+        { "title": "Exploring Foundry", "body": "Some Copilot Studio users cited the Microsoft Copilot harness." },
+        { "title": "More options", "body": "They wanted more harness choices." },
+        { "title": "Also weighing", "body": "Cost, maturity, future direction and team fit." }
+      ],
+      "takeawayLabel": "Design opportunity",
+      "takeaway": "Make Foundry’s value, cost and trade-offs clear for each scenario."
+    },
+    {
+      "id": "language",
+      "kind": "terms",
+      "eyebrow": "02 / Make the language clear",
+      "title": "The same names did not mean the same thing.",
+      "terms": ["GitHub Copilot", "Microsoft Copilot harness", "GitHub Copilot harness", "Copilot", "Copilot Studio", "..."],
+      "question": "Which Copilot?"
+    },
+    {
+      "id": "guidance",
+      "kind": "guidance",
+      "eyebrow": "03 / Connect interest to implementation",
+      "title": "I saw in the keynote that I can build my company’s own IQ. How do I do that?",
+      "ideaLabel": "Idea to explore",
+      "goal": "Describe a goal or task",
+      "routes": [
+        { "label": "Curated", "title": "Guided docs", "steps": ["Step-by-step walkthroughs", "for selected core use cases."] },
+        { "label": "Adaptive", "title": "GenUI with Canvas", "steps": ["Generate tailored steps", "Review the guidance", "Link existing features"] }
+      ],
+      "availability": "*Canvas available in GitHub Copilot app, Copilot app and VS Code",
+      "outcome": "Reviewable steps grounded in documented capabilities"
+    },
+    {
+      "id": "workflows",
+      "kind": "surfaces",
+      "eyebrow": "04 / Build on what already exists",
+      "title": "Meet customers where they already work.",
+      "surfaces": [
+        { "src": "/media/portal.png", "label": "Portal", "status": "" },
+        { "src": "/media/cli.png", "label": "CLI", "status": "" },
+        { "src": "/media/vscode.png", "label": "VS Code", "status": "" },
+        { "src": "/media/github.png", "label": "GitHub Copilot app", "status": "" },
+        { "src": "/media/studio.png", "label": "Copilot Studio", "status": "In progress" }
+      ],
+      "takeawayLabel": "Design opportunity",
+      "takeaway": "Bring new capabilities into existing tools and workflows."
+    },
+    {
+      "id": "security",
+      "kind": "security",
+      "eyebrow": "05 / Make security value clear",
+      "title": "Make our security and governance value clearer.",
+      "items": [
+        { "title": "Security questions", "body": "\"What security features are available?\"" },
+        { "title": "Granular policy control", "body": "Finer-grained controls drew positive reactions." }
+      ],
+      "takeawayLabel": "Customer education",
+      "takeaway": "Explain existing security capabilities and where they apply."
+    },
+    {
+      "id": "human",
+      "kind": "loop",
+      "eyebrow": "06 / Keep human judgment visible",
+      "title": "More automation, with people still in control.",
+      "steps": ["Agent", "Run", "Evaluate", "Optimize"],
+      "review": "Human review",
+      "feedback": "Guide next iteration",
+      "repeat": "Repeat with feedback",
+      "takeawayLabel": "Direction reinforced",
+      "takeaway": "Continue improving automation while making the human role clear—what people review, decide, and guide."
+    },
+    {
+      "id": "takeaways",
+      "kind": "synthesis",
+      "eyebrow": "What I would take back to design",
+      "title": "Design the path, not just the capability.",
+      "items": [
+        { "title": "Choose", "body": "Make Foundry’s value, costs, and trade-offs clear." },
+        { "title": "Adopt", "body": "Fit the tools, agents, and workflows people already use." },
+        { "title": "Trust", "body": "Make agent boundaries and the human role clear." }
+      ]
+    }
+  ]
+}
