@@ -1,10 +1,12 @@
 # Ignite design takeaways
 
-A native, responsive website with editable text and original photos. No embedded PowerPoint, slide screenshots, speaker notes, sign-in, or tracking.
+A native, responsive slide-deck website with editable text and original photos. No embedded PowerPoint, slide screenshots, speaker notes, sign-in, or tracking.
+
+Use **Previous / Next** or the left and right arrow keys to move between slides. **Home / End** go to the first and last slides. Direct links such as `#takeaways` open that slide. Longer slides scroll within the slide area, keeping the controls visible.
 
 ## Edit the website
 
-Use **Edit content** in the website header, or open `content.json` on GitHub and click the pencil button. Change the text, preserve the JSON structure, and commit to `main`. GitHub Pages republishes the website after the commit.
+Open `content.json` in this repository on GitHub and click the pencil button. Change the text, preserve the JSON structure, and commit to `main`. GitHub Pages republishes the website after the commit. The shared website deliberately has no editing link.
 
 To replace a photo, upload its JPEG, PNG, or WebP file into `assets/`, then update the matching `src` and `alt` in `content.json`. Existing `/media/filename` paths map to `assets/filename`; relative `./assets/filename` paths work too.
 

@@ -1,15 +1,11 @@
 let content;
+let slides = [];
+let currentSlide = -1;
 const $ = selector => document.querySelector(selector);
 function node(tag, className, text) {
   const element = document.createElement(tag);
   if (className) element.className = className;
   if (text !== undefined) element.textContent = text;
-  return element;
-}
-function button(text, action, className = '') {
-  const element = node('button', className, text);
-  element.type = 'button';
-  element.addEventListener('click', action);
   return element;
 }
 function report(message) { $('#status').textContent = message; }
@@ -62,14 +58,7 @@ function render() {
   heroText.append(node('p', 'eyebrow', content.subtitle), node('h1', '', content.title), node('p', 'intro', content.introduction));
   hero.append(heroText);
   main.append(hero);
-  const links = node('ol');
-  const coverLink = node('a', '', 'Introduction');
-  coverLink.href = '#top';
-  const first = node('li'); first.append(coverLink); links.append(first);
-  for (const [index, section] of content.sections.entries()) {
-    const link = node('a', '', section.title);
-    link.href = '#' + section.id;
-    const li = node('li'); li.append(node('span', '', String(index + 1).padStart(2, '0')), link); links.append(li);
+  for (const section of content.sections) {
     const article = node('section', 'section ' + section.kind);
     article.id = section.id;
     article.append(heading(section));
@@ -151,16 +140,55 @@ function render() {
     takeaway(section, article);
     main.append(article);
   }
-  const footer = node('footer', 'site-footer');
-  footer.append(node('span', '', content.subtitle), button('Back to top ↑', () => window.scrollTo({ top: 0, behavior: 'smooth' })));
-  main.append(footer);
-  $('#contents').replaceChildren(node('h2', '', 'In this readout'), links);
+}
+function showSlide(index, updateHash = true) {
+  const next = Math.max(0, Math.min(slides.length - 1, index));
+  if (next === currentSlide) return;
+  slides.forEach((slide, position) => { slide.hidden = position !== next; });
+  currentSlide = next;
+  $('#readout').scrollTop = 0;
+  $('#previous-slide').disabled = next === 0;
+  $('#next-slide').disabled = next === slides.length - 1;
+  $('#slide-count').textContent = (next + 1) + ' / ' + slides.length;
+  $('#slide-announcement').textContent = 'Slide ' + (next + 1) + ' of ' + slides.length + ': ' + slides[next].querySelector('h1, h2').textContent;
+  if (updateHash) history.replaceState(null, '', '#' + slides[next].id);
+}
+function initializeSlides() {
+  slides = Array.from($('#readout').children);
+  slides.forEach((slide, index) => {
+    slide.setAttribute('role', 'group');
+    slide.setAttribute('aria-roledescription', 'slide');
+    slide.setAttribute('aria-label', (index + 1) + ' of ' + slides.length + ': ' + slide.querySelector('h1, h2').textContent);
+  });
+  const initial = slides.findIndex(slide => slide.id === location.hash.slice(1));
+  showSlide(initial < 0 ? 0 : initial, false);
+  $('#previous-slide').addEventListener('click', () => showSlide(currentSlide - 1));
+  $('#next-slide').addEventListener('click', () => showSlide(currentSlide + 1));
+  window.addEventListener('hashchange', () => {
+    const index = slides.findIndex(slide => slide.id === location.hash.slice(1));
+    if (index >= 0) showSlide(index, false);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
+    if (event.target instanceof Element && event.target.closest('input, textarea, select, [contenteditable="true"]')) return;
+    let index;
+    switch (event.key) {
+      case 'ArrowLeft': index = currentSlide - 1; break;
+      case 'ArrowRight': index = currentSlide + 1; break;
+      case 'Home': index = 0; break;
+      case 'End': index = slides.length - 1; break;
+      default: return;
+    }
+    event.preventDefault();
+    showSlide(index);
+  });
 }
 async function loadContent() {
   const response = await fetch('./content.json');
   if (!response.ok) throw new Error('The website content could not be loaded (HTTP ' + response.status + ').');
   content = await response.json();
   render();
+  initializeSlides();
   $('#layout').hidden = false;
   report('');
 }

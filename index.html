@@ -7,20 +7,24 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <title>Ignite takeaways</title>
   <link rel="icon" href="data:,">
-  <link rel="stylesheet" href="./app.css">
-  <script type="module" src="./app.js"></script>
+  <link rel="stylesheet" href="./app.css?v=deck-1">
+  <script type="module" src="./app.js?v=deck-1"></script>
 </head>
 <body>
   <a class="skip" href="#readout">Skip to content</a>
   <header class="masthead">
-    <a class="brand" href="./">IGNITE / 2026</a>
-    <a class="edit-button" href="https://github.com/si-jin-chen/ignite-design-takeaways/edit/main/content.json" target="_blank" rel="noopener noreferrer">Edit content</a>
+    <a class="brand" href="#top">IGNITE / 2026</a>
   </header>
   <p id="status" role="status" class="status">Loading readout...</p>
   <noscript><p class="status">Enable JavaScript to view this readout.</p></noscript>
   <div id="layout" class="layout" hidden>
-    <nav id="contents" class="contents" aria-label="Readout sections"></nav>
-    <main id="readout" tabindex="-1"></main>
+    <main id="readout" tabindex="0" aria-label="Ignite takeaways slides"></main>
+    <nav class="deck-controls" aria-label="Slide navigation">
+      <button id="previous-slide" type="button" aria-label="Previous slide">← Previous</button>
+      <p id="slide-count" class="slide-count"></p>
+      <button id="next-slide" type="button" aria-label="Next slide">Next →</button>
+    </nav>
+    <p id="slide-announcement" class="sr-only" aria-live="polite" aria-atomic="true"></p>
   </div>
 </body>
 </html>
